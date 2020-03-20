@@ -19,6 +19,6 @@ import { MenuComponent } from './menu/menu.component';
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, MenuComponent]
 })
 export class AppModule { }
