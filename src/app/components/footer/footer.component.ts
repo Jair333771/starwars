@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ConstantsService } from 'src/app/services/constants.service';
 
-
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss']
 })
+export class FooterComponent implements OnInit {
 
-
-export class MenuComponent implements OnInit {
-
+  
   menu = [];
 
   constructor(constants: ConstantsService) { 
     this.menu = constants.menu;
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
