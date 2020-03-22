@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class PeopleService {
-  peoples = "";
+  endpoint = "";
   constructor(protected http: HttpClient, constants: ConstantsService) {
-    this.peoples = constants.peoples;
+    this.endpoint = constants.endpoint;
   }
 
-  getAllPeople() {
-    return this.http.get(this.peoples);
+  getAll(path: string) {
+    return this.http.get(this.endpoint + path);
   }
 
 }
