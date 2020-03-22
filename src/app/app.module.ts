@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
@@ -9,6 +9,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AppRoutes } from './app.routes';
 import { ConstantsService } from './services/constants.service';
+import { PeopleService } from './Rest/people.service';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,12 @@ import { ConstantsService } from './services/constants.service';
   imports: [
     BrowserModule,
     AppRoutes,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
-    ConstantsService
+    ConstantsService,
+    PeopleService
   ],
   bootstrap: [AppComponent]
 })

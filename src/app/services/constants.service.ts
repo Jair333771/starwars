@@ -15,5 +15,8 @@ export class ConstantsService {
     { display: 'Video', url: '//youtube.com' }
   ];
   
+  endpoint = "https://swapi.co/api/";
+  peoples = this.endpoint + "people/"
+  
   constructor() { }
 }

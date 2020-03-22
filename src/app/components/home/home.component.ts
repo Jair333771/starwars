@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { PeopleService } from '../../Rest/people.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,14 @@ export class HomeComponent implements OnInit {
 
   public elemenstHome: any;
   public root = "/assets/images/elements/"
+  people: any[] = [];
 
-  constructor() {    
+  constructor(protected peopleService: PeopleService) {    
   }
 
   ngOnInit(): void {
     this.getElement();
+    this.getAllPeople();
   }
 
   getElement(){
@@ -42,5 +44,17 @@ export class HomeComponent implements OnInit {
         ]
       },
     ];
+  }  
+
+  getAllPeople(){
+    this.peopleService.getAllPeople().subscribe(
+      (data) => {
+        this.people = data['results'];
+        console.log(this.people);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

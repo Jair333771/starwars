@@ -10,6 +10,12 @@ export class FooterComponent implements OnInit {
 
   
   menu = [];
+  collaborators = [
+    {name: "Miguel Ángel Bermudez"}, 
+    {name: "Johan Sebastian Torres"},  
+    {name: "Steven Rodríguez"},  
+    {name: "Jair Rodríguez"}
+  ];
 
   constructor(constants: ConstantsService) { 
     this.menu = constants.menu;
