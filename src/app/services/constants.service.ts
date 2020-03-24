@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ConstantsService {
 
   menu = [
-    { display: 'People', url: '#' },
+    { display: 'Characters', url: '#' },
     { display: 'Planets', url: '#' },
     { display: 'Films', url: '#' },
     { display: 'species', url: '#' },
