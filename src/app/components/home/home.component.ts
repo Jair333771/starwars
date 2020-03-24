@@ -27,23 +27,23 @@ export class HomeComponent implements OnInit {
       {
         id: 1,
         properties: [
-          { name: 'Personajes', image: 'people.jpg', endpoint: "people", images: "characters/" },
-          { name: 'Planetas', image: 'planet.jpg', endpoint: "planets", images: "planets/" },
+          { name: 'Characters', image: 'people.jpg', endpoint: "people", images: "characters/" },
+          { name: 'Planets', image: 'planet.jpg', endpoint: "planets", images: "planets/" },
         ]
       },
       {
         id: 2,
         endpoint: "/people",
         properties: [
-          { name: 'Especies', image: 'characters.jpg', endpoint: "species", images: "species/" },
-          { name: 'Naves', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
+          { name: 'Species', image: 'characters.jpg', endpoint: "species", images: "species/" },
+          { name: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
         ]
       },
       {
         id: 3,
         endpoint: "/people",
         properties: [
-          { name: 'Vehículos', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
+          { name: 'Vehicles', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
           { name: 'Films', image: 'films.jpg', endpoint: "films", images: "films/" },
         ]
       },
