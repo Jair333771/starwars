@@ -9,7 +9,7 @@ export class ConstantsService {
     { display: 'Characters', url: '#' },
     { display: 'Planets', url: '#' },
     { display: 'Films', url: '#' },
-    { display: 'species', url: '#' },
+    { display: 'Species', url: '#' },
     { display: 'Vehicules', url: '#' },
     { display: 'Starships', url: '#' },
     { display: 'Video', url: '//youtube.com' }
