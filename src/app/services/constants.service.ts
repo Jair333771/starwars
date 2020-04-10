@@ -15,7 +15,7 @@ export class ConstantsService {
     { display: 'Video', url: '//youtube.com' }
   ];
   
-  endpoint = "https://swapi.co/api/";  
+  endpoint = "https://swapi.co/api/";
   urlimages = "https://starwars-visualguide.com/assets/img/"
   constructor() { }
 }
