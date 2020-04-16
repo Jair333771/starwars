@@ -10,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AppRoutes } from './app.routes';
 import { ConstantsService } from './services/constants.service';
 import { PeopleService } from './Rest/people.service';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PeopleService } from './Rest/people.service';
     HomeComponent,
     MenuComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

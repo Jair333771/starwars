@@ -37,8 +37,8 @@
 						<div class="block2-overlay trans-0-4">
 							<div class="block2-btn-addcart w-size1 trans-0-4">
 								<!-- Button -->
-								<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-									View
+								<button (click)="getAll2(item.id,item.image)" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+									View {{item.name}}
 								</button>
 							</div>
 						</div>
@@ -54,6 +54,42 @@
 		</div>
 		<div class="text-center bold">
 			<strong class="s-text12 p-b-30" style="cursor: pointer;" (click)="state=1">Volver al inicio</strong>
+		</div>
+	</div>
+</section>
+
+<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=3"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 p-b-30" *ngFor="let item of all">
+				<div class="hov-img-zoom">
+					<img src="{{item.image}}" alt="IMG-ABOUT">
+				</div>
+			</div>
+
+			<div class="col-md-8 p-b-30">
+				<h3 class="m-text26 p-t-15 p-b-16">
+					Our story
+				</h3>
+
+				<p class="p-b-28">
+					Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus. Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
+				</p>
+
+				<div class="bo13 p-l-29 m-l-9 p-b-10">
+					<p class="p-b-11">
+						Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+					</p>
+
+					<span class="s-text7">
+						- Steve Job’s
+					</span>
+				</div>
+			</div>
+		</div>
+	
+		<div class="text-center bold">
+			<strong class="s-text12 p-b-30" style="cursor: pointer;" (click)="state=2">Volver</strong>
 		</div>
 	</div>
 </section>

@@ -66,4 +66,23 @@ export class HomeComponent implements OnInit {
     );
     this.state = 2;
   }
+
+  getAll2(element: any, img:any) {
+    this.peopleService.getAll(element.endpoint).subscribe(
+      (data) => {
+        this.all = data['results'];
+        this.all.forEach(item => {
+          item.id = item.url.match(/([0-9])+/g)[0];
+          item.image = this.urlImages + element.images + item.id + ".jpg";
+          if (element.endpoint == "films")
+            item.name = item.title;
+        });
+        console.log(this.all);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    this.state = 3;
+  }
 }
