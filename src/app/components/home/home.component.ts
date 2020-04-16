@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
       },
       {
         id: 2,
-        endpoint: "/people",
         properties: [
           { name: 'Species', image: 'characters.jpg', endpoint: "species", images: "species/" },
           { name: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
@@ -41,7 +40,6 @@ export class HomeComponent implements OnInit {
       },
       {
         id: 3,
-        endpoint: "/people",
         properties: [
           { name: 'Vehicles', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
           { name: 'Films', image: 'films.jpg', endpoint: "films", images: "films/" },
