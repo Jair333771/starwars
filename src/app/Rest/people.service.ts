@@ -16,4 +16,8 @@ export class PeopleService {
     return this.http.get(this.endpoint + path);
   }
 
+  getItem(path: string) {
+    return this.http.get(this.endpoint + path);
+  }
+
 }
