@@ -3,6 +3,7 @@ import { PeopleService } from '../../Rest/people.service';
 import { ConstantsService } from 'src/app/services/constants.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,9 @@ export class HomeComponent implements OnInit {
 
   public elemenstHome: any;
   public root = "/assets/images/elements/"
+  public about: any;
+  public info: any;
+
   state = 1;
   all: any[];
   public urlImages = "";
@@ -70,19 +74,51 @@ export class HomeComponent implements OnInit {
     this.state = 2;
   }
 
+  getInfo(image: any){
+
+    this.info = [
+      {
+        id: 1,
+        name:this.about.name,
+        urlimage:image,
+        inf: JSON.stringify(this.about)
+
+      }
+    ];
+  }
+
   getAbout(element: any) {
+    console.log('getAbout', element.name, ' endpoint', element.endpoint, 'url', element.image);
+    
+    this.peopleService.getItem(element.endpoint + "/" + element.id + "/").subscribe(
+      (data) => {
+        this.about = data;
+      
+        this.getInfo(element.image);
+        console.log('about' , this.about, ' info ',  this.info[0]);
+      },
+      (error) => {
+        console.error(error);
+      }
+      
+    );
+    this.state = 3;
+  }
+
+ /* getAbout(element: any) {
     console.log('getAbout', element.name, ' endpoint', element.endpoint);
     
     this.peopleService.getItem(element.endpoint + "/" + element.id + "/").subscribe(
       (data) => {
-        this.all = data['results'];
+        this.all = data[0];
         
-        console.log('data' , data, ' D result ', data['result']);
+        console.log('data' , data, ' D result ', this);
       },
       (error) => {
         console.error(error);
       }
     );
     this.state = 3;
-  }
+  }*/
+
 }
