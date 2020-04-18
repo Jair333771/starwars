@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConstantsService } from 'src/app/services/constants.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -13,8 +13,8 @@ export class MenuComponent implements OnInit {
 
   menu = [];
 
-  constructor(constants: ConstantsService) { 
-    this.menu = constants.menu;
+  constructor() { 
+    this.menu = environment.menu;
   }
 
   ngOnInit(): void {

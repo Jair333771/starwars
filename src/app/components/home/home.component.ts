@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../../Rest/people.service';
-import { ConstantsService } from 'src/app/services/constants.service';
+import { environment } from '../../../environments/environment';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   state = 1;
   all: any[];
   public urlImages = "";
-  constructor(protected peopleService: PeopleService, protected constants: ConstantsService) {
-    this.urlImages = constants.urlimages;
+  constructor(protected peopleService: PeopleService) {
+    this.urlImages = environment.urlimages;
   }
 
   ngOnInit(): void {

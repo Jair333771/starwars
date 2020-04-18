@@ -8,7 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AppRoutes } from './app.routes';
-import { ConstantsService } from './services/constants.service';
 import { PeopleService } from './Rest/people.service';
 import { AboutComponent } from './components/about/about.component';
 
@@ -28,7 +27,6 @@ import { AboutComponent } from './components/about/about.component';
     HttpClientModule
   ],
   providers: [
-    ConstantsService,
     PeopleService
   ],
   bootstrap: [AppComponent]
