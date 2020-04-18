@@ -74,17 +74,21 @@ export class HomeComponent implements OnInit {
     this.state = 2;
   }
 
-  getInfo(image: any){
-
+  getInfo(image: any, data: any, endpoint: string){
+    console.log('endpoint 2: ' + endpoint);    
     this.info = [
-      {
-        id: 1,
-        name:this.about.name,
-        urlimage:image,
-        inf: JSON.stringify(this.about)
-
-      }
-    ];
+        {        
+          id: 1,
+          name:this.about.name,
+          urlimage:image,
+          birthYear: data.birth_year,
+          height: data.height,
+          mass: data.mass,
+          gender: data.gender,
+          hairColor: data.hair_color,
+          skinColor: data.skin_color
+        }
+      ];
   }
 
   getAbout(element: any) {
@@ -94,8 +98,8 @@ export class HomeComponent implements OnInit {
       (data) => {
         this.about = data;
       
-        this.getInfo(element.image);
-        console.log('about' , this.about, ' info ',  this.info[0]);
+        this.getInfo(element.image, data, element.endpoint);
+        console.log('about' , JSON.stringify(this.about), ' info ',  this.info[0]);
       },
       (error) => {
         console.error(error);
