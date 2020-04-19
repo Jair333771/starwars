@@ -17,7 +17,7 @@ export class PeopleService {
   }
 
   getItem(path: string) {
-    return this.http.get(this.endpoint + path);
+    return this.http.get(path);
   }
 
 }

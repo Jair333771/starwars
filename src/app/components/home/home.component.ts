@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit {
   public root = "/assets/images/elements/"
   public about: any;
   public info: any;
+  public imageDetail: any;
+  public characteristics: any = [];
+
+  hiddenProperties = ["created", "edited", "url"];
 
   state = 1;
   all: any[];
@@ -54,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAll(element: any) {
-    console.log('getAll', element.name, ' endpoint', element.endpoint);
+    this.all = [];
     this.peopleService.getAll(element.endpoint).subscribe(
       (data) => {
         this.all = data['results'];
@@ -62,67 +66,51 @@ export class HomeComponent implements OnInit {
           item.id = item.url.match(/([0-9])+/g)[0];
           item.image = this.urlImages + element.images + item.id + ".jpg";
           item.endpoint = element.endpoint;
+
           if (element.endpoint == "films")
             item.name = item.title;
+
+          this.state = 2;
         });
-        console.log(this.all);
       },
       (error) => {
         console.error(error);
       }
     );
-    this.state = 2;
-  }
-
-  getInfo(image: any, data: any, endpoint: string){
-    console.log('endpoint 2: ' + endpoint);    
-    this.info = [
-        {        
-          id: 1,
-          name:this.about.name,
-          urlimage:image,
-          birthYear: data.birth_year,
-          height: data.height,
-          mass: data.mass,
-          gender: data.gender,
-          hairColor: data.hair_color,
-          skinColor: data.skin_color
-        }
-      ];
   }
 
   getAbout(element: any) {
-    console.log('getAbout', element.name, ' endpoint', element.endpoint, 'url', element.image);
-    
-    this.peopleService.getItem(element.endpoint + "/" + element.id + "/").subscribe(
+    this.peopleService.getItem(element.url).subscribe(
       (data) => {
-        this.about = data;
-      
-        this.getInfo(element.image, data, element.endpoint);
-        console.log('about' , JSON.stringify(this.about), ' info ',  this.info[0]);
+        this.info = data;
+        this.imageDetail = element.image;
+        this.state = 3;
+        this.info = this.removeItems(this.info, this.hiddenProperties);
+        console.log(this.info);
       },
       (error) => {
         console.error(error);
       }
-      
     );
-    this.state = 3;
   }
 
- /* getAbout(element: any) {
-    console.log('getAbout', element.name, ' endpoint', element.endpoint);
-    
-    this.peopleService.getItem(element.endpoint + "/" + element.id + "/").subscribe(
-      (data) => {
-        this.all = data[0];
-        
-        console.log('data' , data, ' D result ', this);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-    this.state = 3;
-  }*/
-
+  removeItems(obj: any, list: string[]) {
+    var newObject = Object.keys(obj).reduce((object, key) => {
+      if (!list.includes(key)) {
+        if(!Array.isArray(obj[key])) {
+          object[key] = obj[key];
+        }
+        else if (obj[key].length > 0){
+          var item = {
+            title: key,
+            list: obj[key]
+          };
+          this.characteristics.push(item);
+        }
+          
+      }      
+      return object
+    }, {})
+    return newObject;
+  }
 }

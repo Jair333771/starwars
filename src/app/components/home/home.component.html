@@ -16,7 +16,7 @@
 					<div class="block1-wrapbtn w-size2">
 						<!-- Button -->
 						<div (click)="getAll(element)" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							{{element.name}} 
+							{{element.name}}
 						</div>
 					</div>
 				</div>
@@ -25,19 +25,20 @@
 	</div>
 </section>
 
-<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=2"> 
+<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=2">
 	<div class="container">
 		<div class="row">
-			<div  class="col-sm-12 col-md-6 col-lg-4 p-b-50" *ngFor="let item of all">
+			<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" *ngFor="let item of all">
 				<!-- Block2 -->
 				<div class="block2">
-					<div  class="block2-img wrap-pic-w of-hidden pos-relative">
+					<div class="block2-img wrap-pic-w of-hidden pos-relative">
 						<img src="{{item.image}}" alt="IMG-PRODUCT">
 
 						<div class="block2-overlay trans-0-4">
 							<div class="block2-btn-addcart w-size1 trans-0-4">
 								<!-- Button -->
-								<button (click)="getAbout(item)" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+								<button (click)="getAbout(item)"
+									class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 									View
 								</button>
 							</div>
@@ -58,46 +59,36 @@
 	</div>
 </section>
 
-<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=3"> 
+<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=3">
 	<div class="container">
-		<div class="row" *ngFor="let item of info">
-			<div class="col-md-4 p-b-30" >
-				<div class="hov-img-zoom" >
-					<img src="{{item.urlimage}}" alt="IMG-ABOUT">
+		<div class="row">
+			<div class="col-md-4 p-b-30">
+				<div class="hov-img-zoom">
+					<img src="{{imageDetail}}" alt="IMG-ABOUT">
 				</div>
 			</div>
 
-			<div class="col-md-8 p-b-30" >
-				<h3 class="m-text26 p-t-15 p-b-16">
-					{{item.name}}
-				</h3>
-				<p class="p-b-28">
-					
-				</p>
-
-				<div class="bo13 p-l-29 m-l-9 p-b-10">
+			<div class="col-md-8 p-b-30">
+				<h2 class="pb-2">Characteristics</h2>
+				<div class="bo13 p-l-29 m-l-9 p-b-10" *ngFor="let item of info | keyvalue">
 					<p class="p-b-11">
-						<b>Birth Year: </b> {{item.birthYear}}
+						<b>{{item.key}} </b> {{item.value}}
 					</p>
+				</div>
+				<h2 class="pb-2 pt-2">External links</h2>
+				<div class="bo13 p-l-29 m-l-9 p-b-10" *ngFor="let item of characteristics">
 					<p class="p-b-11">
-						<b>Height: </b> {{item.height}}
+						<b>{{item.title}} </b>
 					</p>
-					<p class="p-b-11">
-						<b>Mass: </b>{{item.mass}}
-					</p>
-					<p class="p-b-11">
-						<b>Gender: </b>{{item.gender}}
-					</p>
-					<p class="p-b-11">
-						<b>Hair color:</b> {{item.hairColor}}
-					</p>
-					<p class="p-b-11">
-						<b>Skin color: </b>{{item.skinColor}}
-					</p>
+					<ul class="p-l-29 m-l-9 p-b-10">
+						<li *ngFor="let link of item.list; let i = index" class="p-b-11">
+							<a href="{{link}}">{{item.title}} {{i + 1}}</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	
+
 		<div class="text-center bold">
 			<strong class="s-text12 p-b-30" style="cursor: pointer;" (click)="state=2">Volver</strong>
 		</div>
