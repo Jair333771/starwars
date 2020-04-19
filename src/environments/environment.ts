@@ -12,6 +12,7 @@ export const environment = {
     { display: 'Species', url: '#' },
     { display: 'Vehicules', url: '#' },
     { display: 'Starships', url: '#' },
+    { display: 'About us', url: '/contact' },
     { display: 'Video', url: '//youtube.com' }
   ],
   urlimages: "https://starwars-visualguide.com/assets/img/"
