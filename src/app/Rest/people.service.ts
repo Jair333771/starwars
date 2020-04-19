@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ConstantsService } from 'src/app/services/constants.service';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class PeopleService {
   endpoint = "";
-  constructor(protected http: HttpClient, constants: ConstantsService) {
-    this.endpoint = constants.endpoint;
+  constructor(protected http: HttpClient) {
+    this.endpoint = environment.endpoint;
   }
 
   getAll(path: string) {

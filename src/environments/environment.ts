@@ -3,8 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endpoint: "https://swapi.dev/api/", // "http://swapi.py4e.com/api/";  "https://swapi.co/api/"
+  menu: [
+    { display: 'Characters', url: '#' },
+    { display: 'Planets', url: '#' },
+    { display: 'Films', url: '#' },
+    { display: 'Species', url: '#' },
+    { display: 'Vehicules', url: '#' },
+    { display: 'Starships', url: '#' },
+    { display: 'About us', url: '/contact' },
+    { display: 'Video', url: '//youtube.com' }
+  ],
+  urlimages: "https://starwars-visualguide.com/assets/img/"
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
