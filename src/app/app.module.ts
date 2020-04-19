@@ -10,6 +10,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AppRoutes } from './app.routes';
 import { PeopleService } from './Rest/people.service';
 import { AboutComponent } from './components/about/about.component';
+import { RemoveUnderscorePipe } from './utilities/remove-underscore-pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { AboutComponent } from './components/about/about.component';
     MenuComponent,
     ContactComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    RemoveUnderscorePipe
   ],
   imports: [
     BrowserModule,

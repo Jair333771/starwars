@@ -6,3 +6,11 @@
     background-image: url("/assets/images/banner.jpg");
     background-attachment: fixed;
 }
+
+.list {
+    &-group {
+        &-title {
+            text-transform: capitalize;
+        }
+    }
+}

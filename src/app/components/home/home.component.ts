@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { PeopleService } from '../../Rest/people.service';
 import { environment } from '../../../environments/environment';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { RemoveUnderscorePipe } from '../../utilities/remove-underscore-pipe';
 
 
 @Component({
@@ -17,12 +18,14 @@ export class HomeComponent implements OnInit {
   public info: any;
   public imageDetail: any;
   public characteristics: any = [];
+  public externalLinks: any = [];
 
   hiddenProperties = ["created", "edited", "url"];
 
   state = 1;
   all: any[];
   public urlImages = "";
+
   constructor(protected peopleService: PeopleService) {
     this.urlImages = environment.urlimages;
   }
@@ -80,13 +83,15 @@ export class HomeComponent implements OnInit {
   }
 
   getAbout(element: any) {
+
+    this.characteristics = [];
+
     this.peopleService.getItem(element.url).subscribe(
       (data) => {
         this.info = data;
         this.imageDetail = element.image;
         this.state = 3;
         this.info = this.removeItems(this.info, this.hiddenProperties);
-        console.log(this.info);
       },
       (error) => {
         console.error(error);
@@ -101,13 +106,37 @@ export class HomeComponent implements OnInit {
           object[key] = obj[key];
         }
         else if (obj[key].length > 0){
+          
           var item = {
             title: key,
-            list: obj[key]
+            details: []
           };
-          this.characteristics.push(item);
+
+          // Obtener los sub elementos del elemento actual            
+          obj[key].forEach(link => {
+            
+            this.peopleService.getItem(link).subscribe(
+              (response) => {
+                var res: any = response;
+                var detail = {
+                  id: link.match(/([0-9])+/g)[0],
+                  name: typeof res.name != 'undefined' ? res.name : res.title,
+                  url: link,
+                  type: item.title,
+                  image: this.urlImages + item.title + "/" + link.match(/([0-9])+/g)[0] + ".jpg"
+                };
+                item.details.push(detail);
+              },
+              (error) => {
+                console.error(error);
+              }
+            );            
+          });
+          setTimeout(() => {
+            this.characteristics.push(item);
+            console.log(item)
+          }, 3000);
         }
-          
       }      
       return object
     }, {})
