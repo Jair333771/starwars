@@ -53,6 +53,7 @@ export class AppComponent implements OnInit{
             item.name = item.title;
 
             AppComponent.state = 2;
+            
         });
       },
       (error) => {
