@@ -6,18 +6,17 @@ export const environment = {
   production: false,
   endpoint: "https://swapi.dev/api/", // "http://swapi.py4e.com/api/";  "https://swapi.co/api/"
   menu: [
-    { display: 'Characters', url: '#' },
-    { display: 'Planets', url: '#' },
-    { display: 'Films', url: '#' },
-    { display: 'Species', url: '#' },
-    { display: 'Vehicules', url: '#' },
-    { display: 'Starships', url: '#' },
-    { display: 'About us', url: '/contact' },
+    { display: 'Characters', image: 'people.jpg', endpoint: "people", images: "characters/" },
+    { display: 'Planets', image: 'planet.jpg', endpoint: "planets", images: "planets/" },
+    { display: 'Films', image: 'films.jpg', endpoint: "films", images: "films/" },
+    { display: 'Species', image: 'characters.jpg', endpoint: "species", images: "species/" },
+    { display: 'Vehicles', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
+    { display: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
     { display: 'Video', url: '//youtube.com' }
   ],
-  urlimages: "https://starwars-visualguide.com/assets/img/"
+  urlimages: "https://starwars-visualguide.com/assets/img/",
+  state: 1
 };
-
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -4,7 +4,7 @@
 </section>
 
 <!-- Banner -->
-<section class="banner bgwhite p-t-40 p-b-40" [hidden]="state!=1">
+<section class="banner bgwhite p-t-40 p-b-40" [hidden]="State!=1">
 	<div class="container">
 		<div class="row">
 			<!-- List -->
@@ -25,10 +25,10 @@
 	</div>
 </section>
 
-<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=2">
+<section class="bgwhite p-t-55 p-b-65" [hidden]="State!=2">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" *ngFor="let item of all">
+			<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" *ngFor="let item of getListAll">
 				<!-- Block2 -->
 				<div class="block2">
 					<div class="block2-img wrap-pic-w of-hidden pos-relative">
@@ -54,12 +54,12 @@
 			</div>
 		</div>
 		<div class="text-center bold">
-			<strong class="s-text12 p-b-30 cursor-pointer" (click)="state=1">Return</strong>
+			<strong class="s-text12 p-b-30 cursor-pointer" (click)="State=1">Return</strong>
 		</div>
 	</div>
 </section>
 
-<section class="bgwhite p-t-55 p-b-65" [hidden]="state!=3">
+<section class="bgwhite p-t-55 p-b-65" [hidden]="State!=3">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 p-b-30">
@@ -103,7 +103,7 @@
 		</div>
 
 		<div class="text-center bold">
-			<strong class="s-text12 p-b-30 cursor-pointer" (click)="state=2">Return</strong>
+			<strong class="s-text12 p-b-30 cursor-pointer" (click)="State=2">Return</strong>
 		</div>
 	</div>
 </section>

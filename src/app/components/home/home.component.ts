@@ -3,14 +3,15 @@ import { PeopleService } from '../../Rest/people.service';
 import { environment } from '../../../environments/environment';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { RemoveUnderscorePipe } from '../../utilities/remove-underscore-pipe';
-
+import { ChangeDetectorRef } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends AppComponent {
 
   public elemenstHome: any;
   public root = "/assets/images/elements/"
@@ -19,16 +20,7 @@ export class HomeComponent implements OnInit {
   public imageDetail: any;
   public characteristics: any = [];
   public externalLinks: any = [];
-
   hiddenProperties = ["created", "edited", "url"];
-
-  state = 1;
-  all: any[];
-  public urlImages = "";
-
-  constructor(protected peopleService: PeopleService) {
-    this.urlImages = environment.urlimages;
-  }
 
   ngOnInit(): void {
     this.getElement();
@@ -60,37 +52,14 @@ export class HomeComponent implements OnInit {
     ];
   }
 
-  getAll(element: any) {
-    this.all = [];
-    this.peopleService.getAll(element.endpoint).subscribe(
-      (data) => {
-        this.all = data['results'];
-        this.all.forEach(item => {
-          item.id = item.url.match(/([0-9])+/g)[0];
-          item.image = this.urlImages + element.images + item.id + ".jpg";
-          item.endpoint = element.endpoint;
-
-          if (element.endpoint == "films")
-            item.name = item.title;
-
-          this.state = 2;
-        });
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
   getAbout(element: any) {
-
     this.characteristics = [];
 
     this.peopleService.getItem(element.url).subscribe(
       (data) => {
         this.info = data;
         this.imageDetail = element.image;
-        this.state = 3;
+        AppComponent.state = 3;
         this.info = this.removeItems(this.info, this.hiddenProperties);
       },
       (error) => {
