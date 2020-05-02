@@ -20,3 +20,24 @@
         cursor: pointer;
     }
 }
+
+.block2 {
+    &-img {
+        min-height: 200px;
+        background: {
+            image:url(../../../assets/images/default.png);
+            position: bottom center;
+            size: cover;
+        }
+    }
+}
+
+
+.hov-img-zoom {
+    min-height: 200px;
+    background: {
+        image:url(../../../assets/images/default.png);
+        position: bottom center;
+        size: cover;
+    }
+}
