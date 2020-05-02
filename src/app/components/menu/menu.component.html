@@ -16,15 +16,15 @@
                         <li *ngFor="let item of menu">
                             <span class="cursor-pointer" (click)="getAll(item)">{{item.display}}</span>
                         </li>
-
+                        
                     </ul>
                 </nav>
             </div>
 
             <!-- Header Icon -->
             <div class="header-icons">
-                <a href="www.youtube.com" target="_blank" class="header-wrapicon1 dis-block header-icons-video">
-                    <span href="www.youtube.com" target="blank" class="fa fa-youtube-play"></span>
+                <a href="{{linkVideo}}" target="_blank" class="header-wrapicon1 dis-block header-icons-video">
+                    <span target="blank" class="fa fa-youtube-play"></span>
                 </a>
             </div>
         </div>
@@ -41,8 +41,8 @@
         <div class="btn-show-menu">
             <!-- Header Icon mobile -->
             <div class="header-icons-mobile">
-                <a href="www.youtube.com" class="header-wrapicon1 dis-block">
-                    <span href="www.youtube.com" target="blank" class="fa fa-youtube-play"></span>
+                <a href="{{linkVideo}}" class="header-wrapicon1 dis-block">
+                    <span target="blank" class="fa fa-youtube-play"></span>
                 </a>
 
                 <span class="linedivide2"></span>

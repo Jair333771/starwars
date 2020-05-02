@@ -8,7 +8,9 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  
   title = 'starWars';
+  linkVideo = "";
   protected static state = 0;
   menu = [];  
   protected static all: any[];
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit{
   constructor(protected peopleService: PeopleService) {
     this.urlImages = environment.urlimages;
     this.menu = environment.menu;
+    this.linkVideo = environment.video;
     AppComponent.state = environment.state;
     AppComponent.all = [];
   }
