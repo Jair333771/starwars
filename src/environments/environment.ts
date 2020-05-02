@@ -11,10 +11,10 @@ export const environment = {
     { display: 'Films', image: 'films.jpg', endpoint: "films", images: "films/" },
     { display: 'Species', image: 'characters.jpg', endpoint: "species", images: "species/" },
     { display: 'Vehicles', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
-    { display: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
-    { display: 'Video', url: '//youtube.com' }
+    { display: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" }
   ],
   urlimages: "https://starwars-visualguide.com/assets/img/",
+  video: "https://www.youtube.com/watch?v=dNsPhOHp0iI",
   state: 1
 };
 
