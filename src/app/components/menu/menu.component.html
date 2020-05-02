@@ -14,9 +14,9 @@
                     <ul class="main_menu">
 
                         <li *ngFor="let item of menu">
-                            <a  href="{{item.url}}">{{item.display}}</a>
+                            <span class="cursor-pointer" (click)="getAll(item)">{{item.display}}</span>
                         </li>
-                        
+
                     </ul>
                 </nav>
             </div>
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Menu Mobile -->
-    <div class="wrap-side-menu" >
+    <div class="wrap-side-menu">
         <nav class="side-menu">
             <ul class="main-menu">
                 <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">

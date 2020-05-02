@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-menu',
@@ -8,16 +8,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./menu.component.scss']
 })
 
-
-export class MenuComponent implements OnInit {
-
-  menu = [];
-
-  constructor() { 
-    this.menu = environment.menu;
-  }
-
+export class MenuComponent extends AppComponent {
   ngOnInit(): void {
   }
-
 }

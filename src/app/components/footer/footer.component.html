@@ -41,24 +41,24 @@
 
 			<ul>
 				<li *ngFor="let e of menu" class="p-b-9">
-					<a (click)="getAll(e)" class="s-text7">
+					<span class="cursor-pointer s-text7" (click)="getAll(e)">
 						{{e.display}}
-					</a>
+					</span>
 				</li>
 			</ul>
 		</div>
 
 		<div class="col p-t-30 p-l-15 p-r-15 respon3">
 			<h4 class="s-text12 p-b-30">
-				Git Hub Link
+				GitHub Link
 			</h4>
 
 			<form>
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Conoce nuestro trabajo en GitHub
-						</a>
+						<span class="s-text7">
+							See more on our github link
+						</span>
 					</li>
 				</ul>
 
@@ -66,7 +66,7 @@
 					<!-- Button -->
 					<a class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4" target="blank"
 						href="https://github.com/Jair333771/starwars/pulse/monthly">
-						Ver enlace
+						See More
 					</a>
 				</div>
 
