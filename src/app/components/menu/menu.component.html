@@ -16,17 +16,19 @@
                         <li *ngFor="let item of menu">
                             <span class="cursor-pointer" (click)="getAll(item)">{{item.display}}</span>
                         </li>
-                        
                     </ul>
                 </nav>
             </div>
 
             <!-- Header Icon -->
             <div class="header-icons">
-                <a href="{{linkVideo}}" target="_blank" class="header-wrapicon1 dis-block header-icons-video">
+                <!--<a href="{{linkVideo}}" target="_blank" class="header-wrapicon1 dis-block header-icons-video">
                     <span target="blank" class="fa fa-youtube-play"></span>
-                </a>
+                </a>-->
+                <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+                <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
             </div>
+
         </div>
     </div>
 
@@ -44,10 +46,7 @@
                 <a href="{{linkVideo}}" class="header-wrapicon1 dis-block">
                     <span target="blank" class="fa fa-youtube-play"></span>
                 </a>
-
                 <span class="linedivide2"></span>
-
-
             </div>
 
             <div class="btn-show-menu-mobile hamburger hamburger--squeeze">

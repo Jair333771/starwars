@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  dataendpoint:"https://localhost:44383/",
   endpoint: "https://swapi.dev/api/", // "http://swapi.py4e.com/api/";  "https://swapi.co/api/"
   menu: [
     { display: 'Characters', image: 'people.jpg', endpoint: "people", images: "characters/" },
@@ -11,7 +12,8 @@ export const environment = {
     { display: 'Films', image: 'films.jpg', endpoint: "films", images: "films/" },
     { display: 'Species', image: 'characters.jpg', endpoint: "species", images: "species/" },
     { display: 'Vehicles', image: 'vehicle.jpg', endpoint: "vehicles", images: "vehicles/" },
-    { display: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" }
+    { display: 'Starships', image: 'starships.jpg', endpoint: "starships", images: "starships/" },
+    { display: 'History', image: '', endpoint: "history", images: "history/" }
   ],
   urlimages: "https://starwars-visualguide.com/assets/img/",
   video: "https://www.youtube.com/watch?v=dNsPhOHp0iI",
