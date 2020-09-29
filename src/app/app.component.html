@@ -1,5 +1,7 @@
 <app-menu></app-menu>
 <!-- contenido dinámico a partir del routes -->
 <router-outlet></router-outlet>
-
+<pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{profile.given_name | json}}</code>
+</pre>
 <app-footer></app-footer>

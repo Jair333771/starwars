@@ -107,3 +107,17 @@
 		</div>
 	</div>
 </section>
+
+<section class="bgwhite p-t-55 p-b-65" [hidden]="State!=4" *ngIf="auth.loggedIn">
+	<div class="container">
+		<div class="row">
+			<div class="card m-2 col-12" *ngFor="let item of getListAll; let i = index">
+				<div class="card-body">
+					<button (click) = "deleteHistory(item.Id,i)"><i class="fa fa-times" aria-hidden="true"></i></button> 
+					<p class="card-text">{{item.Screen}}</p>
+					<p class="card-text"><small class="text-muted">{{item.Date}}</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -10,8 +10,6 @@ import { AppComponent } from 'src/app/app.component';
 
 export class MenuComponent extends AppComponent {
   
-  
-
   ngOnInit(): void {
   }
 }

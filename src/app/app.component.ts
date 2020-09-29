@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { PeopleService } from '../app/Rest/people.service';
 import { environment } from '../environments/environment';
 import { AuthService } from './Rest/auth.service';
@@ -10,15 +11,16 @@ import { HistoryService } from './Rest/history.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  
+  public lista : any[]; 
   title = 'starWars';
+  public user = "";
   linkVideo = "";
   protected static state = 0;
   menu = [];  
-  protected static all: any[];
+  public static all: any[];
   public urlImages = "";
 
-  constructor(protected peopleService: PeopleService, public auth: AuthService, protected historyService: HistoryService) {
+  constructor(protected peopleService: PeopleService, public auth: AuthService, public historyService: HistoryService) {
     this.urlImages = environment.urlimages;
     this.menu = environment.menu;
     this.linkVideo = environment.video;
@@ -27,10 +29,15 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.auth.userProfile$.subscribe((data:any) => {this.user = data.name;});
   }
 
   get getListAll(){
     return AppComponent.all;
+  }
+  
+  get getListHistoryAll(){
+    return this.lista;
   }
 
   get State(){
@@ -42,10 +49,25 @@ export class AppComponent implements OnInit{
   }
 
   getAll(element: any) {
+    
     AppComponent.all = [];
-    if(element.endpoint == "history"){
-      console.log("holas");
-      this.historyService.getAll(element.endpoint).subscribe((data=> console.log(data)));
+    if(this.auth.loggedIn){
+      this.auth.userProfile$.subscribe(
+        (data:any) => {
+          this.user = data.name;
+          debugger;
+          if(element.display != "History"){
+            this.historyService.postHistory(data.name,element.display);
+          }
+        });
+    }
+
+    if(element.endpoint == "history"){   
+      this.historyService.getAll(element.endpoint,this.user)
+      .subscribe(((data:any) => { 
+        AppComponent.all = data;
+        AppComponent.state = 4;
+      }));
     }
     else{
       this.peopleService.getAll(element.endpoint).subscribe(

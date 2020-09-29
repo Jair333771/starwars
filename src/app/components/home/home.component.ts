@@ -19,7 +19,7 @@ export class HomeComponent extends AppComponent {
   public info: any;
   public imageDetail: any;
   public characteristics: any = [];
-  public externalLinks: any = [];
+  public externalLinks: any = []; 
   hiddenProperties = ["created", "edited", "url"];
 
   ngOnInit(): void {
@@ -53,8 +53,8 @@ export class HomeComponent extends AppComponent {
   }
 
   getAbout(element: any) {
+    console.log("entra a getAbout");
     this.characteristics = [];
-
     this.peopleService.getItem(element.url).subscribe(
       (data) => {
         this.info = data;
@@ -68,7 +68,13 @@ export class HomeComponent extends AppComponent {
     );
   }
 
+  deleteHistory( id:string,index:number ){
+    AppComponent.all.splice(index,1)
+    this.historyService.deleteHistory(id);
+  }
+
   removeItems(obj: any, list: string[]) {
+    console.log("entra a removeItems");
     var newObject = Object.keys(obj).reduce((object, key) => {
       if (!list.includes(key)) {
         if(!Array.isArray(obj[key])) {
